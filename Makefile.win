@@ -1,0 +1,61 @@
+# Project: P Juego
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = menu.o main.o juego.o enemigo.o jugador.o enemigo2.o vidas.o curar.o ad_vidas.o derrota.o especial.o texto.o
+LINKOBJ  = menu.o main.o juego.o enemigo.o jugador.o enemigo2.o vidas.o curar.o ad_vidas.o derrota.o especial.o texto.o
+LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/lib" -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -L"C:/Program Files/SFML-2.4.2/lib" -mwindows -lsfml-audio -lsfml-graphics -lsfml-system -lsfml-window
+INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/SFML-2.4.2/include"
+CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"C:/Program Files/SFML-2.4.2/include"
+BIN      = "P Juego.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+menu.o: menu.cpp
+	$(CPP) -c menu.cpp -o menu.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+juego.o: juego.cpp
+	$(CPP) -c juego.cpp -o juego.o $(CXXFLAGS)
+
+enemigo.o: enemigo.cpp
+	$(CPP) -c enemigo.cpp -o enemigo.o $(CXXFLAGS)
+
+jugador.o: jugador.cpp
+	$(CPP) -c jugador.cpp -o jugador.o $(CXXFLAGS)
+
+enemigo2.o: enemigo2.cpp
+	$(CPP) -c enemigo2.cpp -o enemigo2.o $(CXXFLAGS)
+
+vidas.o: vidas.cpp
+	$(CPP) -c vidas.cpp -o vidas.o $(CXXFLAGS)
+
+curar.o: curar.cpp
+	$(CPP) -c curar.cpp -o curar.o $(CXXFLAGS)
+
+ad_vidas.o: ad_vidas.cpp
+	$(CPP) -c ad_vidas.cpp -o ad_vidas.o $(CXXFLAGS)
+
+derrota.o: derrota.cpp
+	$(CPP) -c derrota.cpp -o derrota.o $(CXXFLAGS)
+
+especial.o: especial.cpp
+	$(CPP) -c especial.cpp -o especial.o $(CXXFLAGS)
+
+texto.o: texto.cpp
+	$(CPP) -c texto.cpp -o texto.o $(CXXFLAGS)
